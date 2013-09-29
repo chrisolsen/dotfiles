@@ -18,8 +18,8 @@ set $mod Mod1
 font xft:Monospace 12
 
 # window 1pixel
-new_window 1pixel
-new_float 1pixel
+# new_window 1pixel
+# new_float 1pixel
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -141,7 +141,7 @@ bindsym $mod+Shift+X exit
 
 # COLORS
 # class              border  backgr  text
-client.focused       #444444 #00cbff #aaaaaa
+# client.focused       #444444 #00cbff #aaaaaa
 # client.unfocused     #222222 #222222 #315858
 # client.urgent        #383a3b #383a3b #ee0000
 # client.focused_inactive  #444444 #444444  #2c2c2f
@@ -215,5 +215,5 @@ exec --no-startup-id btsync               # btsync dameon
 # exec --no-startup-id conky                # conky dameon 
 
 # run start up scripts
-exec --no-startup-id (sleep 1 && kill_touchpad)
-exec --no-startup-id (sleep 2 && kill_capslock)
+exec (sleep 1 && kill_touchpad)
+exec (sleep 2 && kill_capslock)
