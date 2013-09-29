@@ -1,0 +1,102 @@
+Bundle 'closetag.vim'
+Bundle 'ctrlp.vim'
+Bundle 'dhruvasagar/vim-railscasts-theme'
+Bundle 'Gundo'
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'https://github.com/digitaltoad/vim-jade'
+Bundle 'ragtag.vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'surround.vim'
+Bundle 'terryma/vim-multiple-cursors'
+Bundle 'tpope/vim-rvm'
+Bundle 'UltiSnips'
+Bundle 'YankRing.vim'
+
+filetype plugin indent on  " This has to exist after all Bunldle calls for Ultisnips to work!!
+let mapleader = ","
+
+" set relativenumber
+
+" Remap ctrl-p
+let g:ctrlp_map = '<F11>'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+map <leader>t :CtrlP<CR>
+map <leader>b :CtrlPBuffer<cr>
+map <leader>m :CtrlPMRU<cr>
+
+
+" My shortcuts
+nmap <Leader>f :e spec/factories/
+map  <Leader>bi :source ~/.vimrc<cr>:BundleInstall<cr>
+nmap <Leader>gac :Gcommit -m -a ""<LEFT>
+nmap <Leader>gc :Gcommit -m ""<LEFT>
+nmap <Leader>gs :Gstatus<cr>
+nmap <Leader>rm :Rmodel
+nmap <Leader>rc :Rcontroller
+nmap <Leader>rv :Rview
+nmap <Leader>rr :e config/routes.rb<cr>
+nmap <Leader>ru :Runittest<cr>
+nmap <Leader>rc :RVcontroller<cr>
+nmap <Leader>rf :RVfunctional<cr>
+nmap <Leader>ri :RVintegration<cr>
+nmap <Leader>cu :!cucumber --require features features/
+nmap <F1> :NERDTree<cr>
+
+syntax on
+" set noautoindent
+" set nocindent
+" set nosmartindent
+
+
+" allow new buffers to be opened without saving the current
+set hidden
+
+" don't wrap lines
+set nowrap
+
+" set the cwd to the current file
+" cool but messes up some rails commands that need to be run from the root
+" set autochdir
+
+" Color scheme
+colorscheme railscasts
+highlight Normal guibg=#131313
+highlight Folded guibg=#0A0A0A guifg=#9090D0
+
+" Set font
+set guifont=Inconsolata\ 9 linespace=0
+
+" Remove menu bar
+set guioptions-=m
+
+" Remove toolbar, left scrollbar and right scrollbar
+set guioptions-=T
+set guioptions-=l
+set guioptions-=L
+set guioptions-=r
+set guioptions-=R
+
+" Folding
+" nnoremap <Space> za
+" vnoremap <Space> za
+set nofoldenable  " turn off folding
+
+" Yank/paste to the OS clipboard with ,y and ,p
+nnoremap <leader>y "+y
+nnoremap <leader>p "+p
+nnoremap <leader>Y "+yy
+nnoremap <leader>P "+P
+
+" Quickly get out of insert mode without your fingers having to leave the
+" home row (either use 'jj' or 'jk')
+inoremap jj <Esc>
+
+" Remap j and k to act as expected when used on long, wrapped, lines
+nnoremap j gj
+nnoremap k gk
+
+" Run Ack fast
+nnoremap <leader>a :Ack<Space>
+
+" We don't need no stinking whitespace
+autocmd FileType jade,unix,coffee,css,cucumber,haml,ruby,sass,scss,yaml,html,eruby,erb,rake,javascript autocmd BufWritePre <buffer> :%s/\s\+$//e
