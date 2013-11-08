@@ -76,7 +76,7 @@ wlan0 ${if_up wlan0}${addr wlan0}${endif} | \
 CPU ${cpu cpu1}% ${freq_g 1}GHz ${exec sensors | grep "Core 0"|awk '{print $3}'} | \
 # RAM in use
 RAM ${memperc}% | \
-${time %a %d.%m.%y} ${time %H:%M}
+${time %a %Y-%m.%d} ${time %H:%M}
 # Weather temperature
 # ${exec weather --headers="Temperature" -q | awk '/Temperature/ {print $2}'}°C ${exec weather --headers="Sky conditions" -q | awk '/Sky conditions/ {print $3 " " $4}'} | \
 # Volume %
