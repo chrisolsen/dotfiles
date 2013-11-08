@@ -45,10 +45,11 @@ unsetopt correct_all
 export PATH=/home/chris/.rvm/gems/ruby-1.9.3-p385/bin:/home/chris/.rvm/gems/ruby-1.9.3-p385@global/bin:/home/chris/.rvm/rubies/ruby-1.9.3-p385/bin:/home/chris/.rvm/bin:/home/chris/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
 export PATH=/home/chris/.scripts:$PATH;
 export PATH=/home/chris/.bin:$PATH;
-export PATH=/usr/share/adt-bundle/sdk/platform-tools:$PATH;
-export PATH=/usr/share/adt-bundle/sdk/tools:$PATH;
-# export SATHER_PATH=/home/chris/projects/work/sather
 export CHROME_BIN=/usr/bin/google-chrome
+
+
+export PATH=/usr/share/android-sdk-linux/platform-tools:$PATH;
+export PATH=/usr/share/android-sdk-linux/tools:$PATH;
 
 ## MARKS
 # http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html
@@ -73,6 +74,15 @@ compctl -K _completemarks jump
 compctl -K _completemarks unmark
 
 ## END OF MARKS
+
+##
+# Launch a web server
+function server() {
+  local port="${:-8000}"
+  google-chrome "http://localhost:${port}/"
+  python -m SimpleHTTPServer "$port"
+}
+## 
 
 export JAVA_FONTS=/usr/share/fonts/true_type
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true'
