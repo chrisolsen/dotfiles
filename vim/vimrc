@@ -52,7 +52,8 @@ syntax on
 set hidden
 
 " don't wrap lines
-set nowrap
+" set nowrap
+set wrap
 
 " set the cwd to the current file
 " cool but messes up some rails commands that need to be run from the root
