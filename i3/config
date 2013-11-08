@@ -17,10 +17,6 @@ set $mod Mod1
 # font pango:Droid Sans 10px
 font xft:Monospace 12
 
-# window 1pixel
-# new_window 1pixel
-# new_float 1pixel
-
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -39,30 +35,13 @@ bindsym $mod+g exec gvim
 for_window [window_role="pop-up"] floating enable,move absolute center
 
 # ASSIGN WORKSPACE VARIABLES
-set $WS1 »dev
-set $WS2 »web
-set $WS3 »text
-set $WS4 »media
-set $WS5 »misc
-set $WS6 »system
-set $WS7 »mail
-
-# WINDOW CONTROL
-Assign [class="mplayer2"] $WS4
-assign [class="VirtualBox"] $WS6
-for_window [class="mplayer2"] floating enable
-assign [instance="Navigator|chromium|filezilla|transmission-gtk"] $WS2
-for_window [class="Arandr"] floating enable
-# for_window [title="File Operation Progress" class="Thunar"] floating enable
-for_window [title="Preferences"] floating enable
-for_window [class="Lxappearance"] floating enable
-for_window [class="Nitrogen"] floating enable
-for_window [title="Xfce-notifyd"] floating enable
-for_window [class="mousepad"] floating enable 
-assign [instance="mousepad|leafpad|geany"] $WS3
-assign [instance="terminator|urxvt"] $WS1
-assign [instance="shotwell|nitrogen|simple-scan|quodlibet|gnome-mplayer|brasero|devede|imagination|picard|wxcam|google-musicmanager|sound-juicer"] $WS4
-assign [instance="syncbackup|bleachbit|caffeine|gparted|hardinfo|truecrypt"] $WS6
+set $WS1 1 DEV
+set $WS2 2 WEB
+set $WS3 3 TEXT
+set $WS4 4 MEDIA
+set $WS5 5 IRC 
+set $WS6 6 SYS
+set $WS7 7 MAIL
 
 # allow clicking the same current workspace hotkey to take you back
 # to the previous workspace
@@ -159,17 +138,17 @@ mode "resize" {
     # when pressing left, the window is resized so that it has
     # more space on its left
 
-    bindsym j resize shrink left 20 px or 20 ppt
-    bindsym Shift+J resize grow   left 20 px or 20 ppt
+    bindsym j resize shrink left 10 px or 10 ppt
+    bindsym Shift+J resize grow   left 10 px or 10 ppt
 
-    bindsym k resize shrink down 20 px or 20 ppt
-    bindsym Shift+K resize grow   down 20 px or 20 ppt
+    bindsym k resize shrink down 10 px or 10 ppt
+    bindsym Shift+K resize grow   down 10 px or 10 ppt
 
-    bindsym l resize shrink up 20 px or 20 ppt
-    bindsym Shift+L resize grow   up 20 px or 20 ppt
+    bindsym l resize shrink up 10 px or 10 ppt
+    bindsym Shift+L resize grow   up 10 px or 10 ppt
 
-    bindsym semicolon resize shrink right 20 px or 20 ppt
-    bindsym Shift+colon resize grow   right 20 px or 20 ppt
+    bindsym semicolon resize shrink right 10 px or 10 ppt
+    bindsym Shift+colon resize grow   right 10 px or 10 ppt
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -181,17 +160,17 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+    # for default 13 tray
     # status_command i3status
+
+    # for conky tray
     status_command conky -c ~/.conkyrc
-    tray_output none
     position top
     mode dock
-    # font pango:fixed 6
     font pango:Convergence 9px
     colors {
       statusline  #999999
       background  #252525
-
       # class            border  backgrd text
       focused_workspace  #252525 #252525 #00cbff
       active_workspace   #252525 #252525 #696f89
@@ -201,19 +180,22 @@ bar {
 }
 
 # Assign apps to specific workspaces
-assign [class="Gvim"]     $WS1
-assign [class="chrome"]   $WS2
-assign [class="Firefox"]  $WS2
+# assign [class="Gvim"]     $WS1
+assign [class="intellij"] $WS1
+assign [class="chrome"] $WS2
+assign [class="webstorm"] $WS1
+assign [class="gimp"]     $WS4
+assign [class="gimp-2.8"] $WS4
 
 exec --no-startup-id xfce4-power-manager  # start power manager
 exec --no-startup-id pnmixer              # volume in bottom bar 
 exec --no-startup-id xfce4-volumed        # volume controls
-exec --no-startup-id fbxkb                # keyboard
+# exec --no-startup-id fbxkb                # keyboard
 exec --no-startup-id nm-applet            # network manager
 exec --no-startup-id (dropbox start)      # network manager
-exec --no-startup-id btsync               # btsync dameon 
-# exec --no-startup-id conky                # conky dameon 
+exec --no-startup-id redshift 
+# exec --no-startup-id btsync               # btsync dameon 
 
 # run start up scripts
-exec (sleep 1 && kill_touchpad)
-exec (sleep 2 && kill_capslock)
+exec (sleep 3 && kill_touchpad)
+exec (sleep 3 && kill_capslock)
