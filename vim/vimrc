@@ -1,3 +1,10 @@
+" Vundle requirements
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
 Bundle 'closetag.vim'
 Bundle 'ctrlp.vim'
 Bundle 'dhruvasagar/vim-railscasts-theme'
@@ -7,15 +14,40 @@ Bundle 'https://github.com/digitaltoad/vim-jade'
 Bundle 'ragtag.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'surround.vim'
-Bundle 'terryma/vim-multiple-cursors'
-Bundle 'tpope/vim-rvm'
 Bundle 'UltiSnips'
 Bundle 'YankRing.vim'
+Bundle 'https://github.com/Valloric/YouCompleteMe'
+Bundle 'https://github.com/honza/vim-snippets'
+Bundle 'https://github.com/mattn/emmet-vim'
+" Bundle 'https://github.com/wookiehangover/jshint.vim'
 
-filetype plugin indent on  " This has to exist after all Bunldle calls for Ultisnips to work!!
+filetype plugin indent on
+
+" Leader
 let mapleader = ","
 
-" set relativenumber
+set backspace=2   " Backspace deletes like most programs in insert mode
+set nobackup
+set nowritebackup
+set noswapfile    " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
+set history=50
+set ruler         " show the cursor position all the time
+set showcmd       " display incomplete commands
+set incsearch     " do incremental searching
+set laststatus=2  " Always display the status line
+set autowrite     " Automatically :write before running commands
+
+" Default widths.  See ftplugin paths for language specific settings
+set tabstop=2
+set shiftwidth=2
+set expandtab
+
+" Open new split panes to right and bottom, which feels more natural
+set splitbelow
+set splitright
+
+" Emmet key remapping
+let g:user_emmet_leader_key='<C-E>'
 
 " Remap ctrl-p
 let g:ctrlp_map = '<F11>'
@@ -24,23 +56,14 @@ map <leader>t :CtrlP<CR>
 map <leader>b :CtrlPBuffer<cr>
 map <leader>m :CtrlPMRU<cr>
 
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<c-space>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " My shortcuts
-nmap <Leader>f :e spec/factories/
-map  <Leader>bi :source ~/.vimrc<cr>:BundleInstall<cr>
-nmap <Leader>gac :Gcommit -m -a ""<LEFT>
-nmap <Leader>gc :Gcommit -m ""<LEFT>
-nmap <Leader>gs :Gstatus<cr>
-nmap <Leader>rm :Rmodel
-nmap <Leader>rc :Rcontroller
-nmap <Leader>rv :Rview
-nmap <Leader>rr :e config/routes.rb<cr>
-nmap <Leader>ru :Runittest<cr>
-nmap <Leader>rc :RVcontroller<cr>
-nmap <Leader>rf :RVfunctional<cr>
-nmap <Leader>ri :RVintegration<cr>
-nmap <Leader>cu :!cucumber --require features features/
 nmap <F1> :NERDTree<cr>
+nmap <F2> :NERDTreeClose<cr>
 
 syntax on
 " set noautoindent
@@ -65,7 +88,7 @@ highlight Normal guibg=#131313
 highlight Folded guibg=#0A0A0A guifg=#9090D0
 
 " Set font
-set guifont=Inconsolata\ 9 linespace=0
+set guifont=Inconsolata\ 10 linespace=0
 
 " Remove menu bar
 set guioptions-=m
@@ -99,5 +122,8 @@ nnoremap k gk
 " Run Ack fast
 nnoremap <leader>a :Ack<Space>
 
+" Treat <li> and <p> tags like the block tags they are
+let g:html_indent_tags = 'li\|p'
+
 " We don't need no stinking whitespace
-autocmd FileType jade,unix,coffee,css,cucumber,haml,ruby,sass,scss,yaml,html,eruby,erb,rake,javascript autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd FileType jade,unix,coffee,css,cucumber,haml,ruby,sass,scss,yaml,html,javascript,less,py autocmd BufWritePre <buffer> :%s/\s\+$//e
