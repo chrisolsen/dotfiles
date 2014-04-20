@@ -19,6 +19,10 @@ Bundle 'YankRing.vim'
 Bundle 'https://github.com/Valloric/YouCompleteMe'
 Bundle 'https://github.com/honza/vim-snippets'
 Bundle 'https://github.com/mattn/emmet-vim'
+Bundle 'https://github.com/907th/vim-auto-save'
+Bundle 'https://github.com/tpope/vim-commentary'
+Bundle 'https://github.com/tpope/vim-fugitive'
+Bundle 'https://github.com/rking/ag.vim'
 " Bundle 'https://github.com/wookiehangover/jshint.vim'
 
 filetype plugin indent on
@@ -46,10 +50,17 @@ set expandtab
 set splitbelow
 set splitright
 
+" AutoSave
+let g:auto_save = 1 
+
+" GSnips
+let g:snips_author_email='olsen.chris@gmail.com'
+let g:snips_author='Chris Olsen'
+
 " Emmet key remapping
 let g:user_emmet_leader_key='<C-E>'
 
-" Remap ctrl-p
+" Remap ctrl-p => <,-t>
 let g:ctrlp_map = '<F11>'
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 map <leader>t :CtrlP<CR>
@@ -121,6 +132,9 @@ nnoremap k gk
 
 " Run Ack fast
 nnoremap <leader>a :Ack<Space>
+
+" https://github.com/ggreer/the_silver_searcher
+let g:ackprg = 'ag --nogroup --nocolor --column'  
 
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
