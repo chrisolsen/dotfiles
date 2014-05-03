@@ -1,0 +1,25 @@
+{
+  "predef": [
+    "require",
+    "module"
+  ],
+  "browser": true,
+  "node": true,
+  "camelcase": true,
+  "curly": true,
+  "eqeqeq": true,
+  "forin": true,
+  "freeze": true,
+  "immed": true,
+  "indent": 2,
+  "latedef": "nofunc",
+  "newcap": false,
+  "noarg": true,
+  "nonbsp": true,
+  "nonew": true,
+  "quotmark": true,
+  "undef": true,
+  "unused": true,
+  "strict": true,
+  "trailing": true
+}
