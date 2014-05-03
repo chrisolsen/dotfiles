@@ -104,7 +104,7 @@ highlight Normal guibg=#131313
 highlight Folded guibg=#0A0A0A guifg=#9090D0
 
 " Set font
-set guifont=Inconsolata\ 10 linespace=0
+set guifont=Inconsolata:h16
 
 " Remove menu bar
 set guioptions-=m
@@ -150,3 +150,4 @@ let g:html_indent_tags = 'li\|p'
 
 " We don't need no stinking whitespace
 autocmd FileType jade,unix,coffee,css,cucumber,haml,ruby,sass,scss,yaml,html,javascript,less,py autocmd BufWritePre <buffer> :%s/\s\+$//e
+
