@@ -54,7 +54,9 @@ set splitbelow
 set splitright
 
 " AutoSave
-let g:auto_save = 1 
+" let g:auto_save = 1 
+" let jshint2_command = '~/path/to/jshint'
+let jshint2_save = 1
 
 " GSnips
 let g:snips_author_email='olsen.chris@gmail.com'
@@ -117,9 +119,13 @@ set guioptions-=R
 " Folding
 " nnoremap <Space> za
 " vnoremap <Space> za
-set nofoldenable  " turn off folding
+" set foldlevelstart=999
+" set foldmethod=indent
+set nofoldenable  " turn off folding      
 
 " Yank/paste to the OS clipboard with ,y and ,p
+" au FileType javascript call JavaScriptFold()
+
 nnoremap <leader>y "+y
 nnoremap <leader>p "+p
 nnoremap <leader>Y "+yy
