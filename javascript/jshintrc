@@ -6,8 +6,9 @@
   "browser": true,
   "node": true,
   "camelcase": true,
-  "curly": true,
-  "eqeqeq": true,
+  "curly": false,
+  "eqeqeq": false,
+  "expr": true,
   "forin": true,
   "freeze": true,
   "immed": true,
@@ -16,10 +17,11 @@
   "newcap": false,
   "noarg": true,
   "nonbsp": true,
-  "nonew": true,
+  "nonew": false,
   "quotmark": true,
   "undef": true,
   "unused": true,
   "strict": true,
-  "trailing": true
+  "trailing": true,
+  "esnext": true
 }
