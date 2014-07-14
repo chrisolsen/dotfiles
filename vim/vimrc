@@ -27,8 +27,19 @@ Bundle 'rking/ag.vim'
 Bundle 'Shutnik/jshint2.vim'
 Bundle 'jelera/vim-javascript-syntax'
 Bundle 'jiangmiao/auto-pairs'
+Bundle 'groenewege/vim-less'
+Bundle 'fatih/vim-go'
+Bundle 'majutsushi/tagbar'
+Bundle 'mustache/vim-mustache-handlebars'
 
-filetype plugin indent on
+" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
+Bundle 'junegunn/vim-easy-align'
+vmap <Enter> <Plug>(EasyAlign)
+
+filetype plugin on
+
+" Go
+let g:go_disable_autoinstall = 0
 
 " Leader
 let mapleader = ","
@@ -53,10 +64,9 @@ set expandtab
 set splitbelow
 set splitright
 
-" AutoSave
-" let g:auto_save = 1 
-" let jshint2_command = '~/path/to/jshint'
-let jshint2_save = 1
+" " AutoSave
+let g:auto_save = 0
+" CURSOR POP ISSUES ======> let jshint2_save = 1
 
 " GSnips
 let g:snips_author_email='olsen.chris@gmail.com'
@@ -67,7 +77,7 @@ let g:user_emmet_leader_key='<C-E>'
 
 " Remap ctrl-p => <,-t>
 let g:ctrlp_map = '<F11>'
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|vendor'
 map <leader>t :CtrlP<CR>
 map <leader>b :CtrlPBuffer<cr>
 map <leader>m :CtrlPMRU<cr>
@@ -81,7 +91,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 nmap <F1> :NERDTree<cr>
 nmap <F2> :NERDTreeClose<cr>
 
-syntax on
+syntax on 
 " set noautoindent
 " set nocindent
 " set nosmartindent
@@ -90,21 +100,19 @@ syntax on
 " allow new buffers to be opened without saving the current
 set hidden
 
-" don't wrap lines
-" set nowrap
-set wrap
+" don't wrap lines, keep em' short!
+set nowrap
 
 " set the cwd to the current file
-" cool but messes up some rails commands that need to be run from the root
-" set autochdir
+set autochdir
 
 " Color scheme
-colorscheme railscasts
+colorscheme molokai 
 highlight Normal guibg=#131313
 highlight Folded guibg=#0A0A0A guifg=#9090D0
 
 " Set font
-set guifont=Inconsolata:h16
+set guifont=Inconsolata:h18
 
 " Remove menu bar
 set guioptions-=m
@@ -119,9 +127,12 @@ set guioptions-=R
 " Folding
 " nnoremap <Space> za
 " vnoremap <Space> za
-" set foldlevelstart=999
+set foldlevelstart=999
+set foldlevel=999
 " set foldmethod=indent
 set nofoldenable  " turn off folding      
+let g:DisableAutoJavascriptFolding = 1
+let g:DisableAutoCssFolding = 1
 
 " Yank/paste to the OS clipboard with ,y and ,p
 " au FileType javascript call JavaScriptFold()
@@ -142,12 +153,57 @@ nnoremap k gk
 " Run Ack fast
 nnoremap <leader>a :Ack<Space>
 
+" Color cols
+set colorcolumn=80
+
 " https://github.com/ggreer/the_silver_searcher
 let g:ackprg = 'ag --nogroup --nocolor --column'  
 
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
 
+" Quick search and replace
+:nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
+
+" TODOS / FIXME
+" command Todo noautocmd vimgrep /TODO\|FIXME/j ** | cw
+" let g:winManagerWindowLayout = 'TodoList,FileExplorer|BufExplorer' 
+
+" Disable auto syntax check for go
+let g:go_fmt_fail_silently = 1
+
 " We don't need no stinking whitespace
-autocmd FileType jade,unix,coffee,css,cucumber,haml,ruby,sass,scss,yaml,html,javascript,less,py autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd FileType jade,unix,coffee,css,cucumber,haml,ruby,sass,scss,yaml,html,javascript,less,py,go,hbs autocmd BufWritePre <buffer> :%s/\s\+$//e
+
+" show/hide the tagbar
+nmap <F8> :TagbarToggle<CR>
+
+" Go highlighting
+let g:tagbar_type_go = {  
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+\ }
 
