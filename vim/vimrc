@@ -55,6 +55,7 @@ set showcmd       " display incomplete commands
 set incsearch     " do incremental searching
 set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
+set autoread      " Auto reload files when changed
 
 " Default widths.  See ftplugin paths for language specific settings
 set tabstop=2
