@@ -116,7 +116,7 @@ highlight Folded guibg=#0A0A0A guifg=#9090D0
 if has("unix")
   let s:uname = system("uname -s")
   if s:uname == "Darwin"
-    set guifont=Inconsolata:h18
+    set guifont=Inconsolata:h20
   elseif s:uname == "Linux"
     set guifont=Inconsolata\ 12 linespace=0
   endif
