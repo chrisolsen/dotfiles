@@ -68,7 +68,7 @@ set splitright
 
 " " AutoSave
 let g:auto_save = 0
-" CURSOR POP ISSUES ======> let jshint2_save = 1
+let jshint2_save = 1
 
 " GSnips
 let g:snips_author_email='olsen.chris@gmail.com'
