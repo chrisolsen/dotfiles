@@ -79,7 +79,7 @@ let g:user_emmet_leader_key='<C-E>'
 
 " Remap ctrl-p => <,-t>
 let g:ctrlp_map = '<F11>'
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|vendor'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|vendor\|tmp'
 map <leader>t :CtrlP<CR>
 map <leader>b :CtrlPBuffer<cr>
 map <leader>m :CtrlPMRU<cr>
