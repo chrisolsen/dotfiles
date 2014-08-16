@@ -112,7 +112,14 @@ highlight Normal guibg=#131313
 highlight Folded guibg=#0A0A0A guifg=#9090D0
 
 " Set font
-set guifont=Inconsolata:h18
+if has("unix")
+  let s:uname = system("uname -s")
+  if s:uname == "Darwin"
+    set guifont=Inconsolata:h18
+  elseif s:uname == "Linux"
+    set guifont=Inconsolata\ 12 linespace=0
+  endif
+endif
 
 " Remove menu bar
 set guioptions-=m
