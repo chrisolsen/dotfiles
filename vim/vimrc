@@ -30,6 +30,7 @@ Bundle 'groenewege/vim-less'
 Bundle 'fatih/vim-go'
 Bundle 'majutsushi/tagbar'
 Bundle 'mustache/vim-mustache-handlebars'
+Bundle 'ap/vim-css-color'
 
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
 Bundle 'junegunn/vim-easy-align'
