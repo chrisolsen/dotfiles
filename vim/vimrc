@@ -25,6 +25,7 @@ Bundle 'rking/ag.vim'
 Bundle 'Shutnik/jshint2.vim'
 Bundle 'jelera/vim-javascript-syntax'
 Bundle 'jiangmiao/auto-pairs'
+Bundle 'vim-scripts/JavaScript-Indent'
 Bundle 'groenewege/vim-less'
 Bundle 'fatih/vim-go'
 Bundle 'majutsushi/tagbar'
@@ -35,6 +36,7 @@ Bundle 'junegunn/vim-easy-align'
 vmap <Enter> <Plug>(EasyAlign)
 
 filetype plugin on
+filetype plugin indent on
 
 " Go
 let g:go_disable_autoinstall = 0
