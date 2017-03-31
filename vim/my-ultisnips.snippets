@@ -1,0 +1,65 @@
+snippet servehttp ""
+func (h ${1:Name}Handler) ServeHTTP(c context.Context, w http.ResponseWriter, r *http.Request) {
+    h.Bind(c, w, r)
+    ${0}
+}
+endsnippet
+
+snippet errfunc "err := func() {...}"
+err := func() error {
+    ${0}
+    return nil
+}()
+endsnippet
+
+snippet hctx "c := h.Ctx"
+c := h.Ctx
+endsnippet
+
+snippet errn "errors.New"
+errors.New(${0})
+endsnippet
+
+snippet datastore "datastore import"
+"google.golang.org/appengine/datastore"
+endsnippet
+
+snippet context "context"
+"golang.org/x/net/context"
+endsnippet
+
+snippet vare "var error"
+var err error
+endsnippet
+
+snippet keys "range keys"
+for i, k := range keys {
+    ${1}[i].Key = k
+}
+endsnippet
+
+snippet test "func Test_"
+func Test${1:Name}(t *testing.T) {
+    $0
+}
+endsnippet
+
+snippet fmte ""
+fmt.Errorf("${1}: %v", ${2:err})$0
+endsnippet
+
+snippet fmts "fmt.Sprintf"
+fmt.Sprintf("${1}", $0)
+endsnippet
+
+snippet fmtp "fmt.Printf"
+fmt.Printf("${1}", $0)
+endsnippet
+
+snippet logd "log.Debugf"
+log.Debugf(${1:c}, $0)
+endsnippet
+
+snippet loge "log.Errorf"
+log.Errorf(${1:c}, $0)
+endsnippet
