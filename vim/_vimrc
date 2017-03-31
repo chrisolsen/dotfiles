@@ -1,0 +1,103 @@
+
+set nocompatible              " be iMproved, required
+filetype off                  " required
+set rtp+=$HOME/vimfiles/bundle/Vundle.vim/
+
+" Plugins
+call vundle#begin('$HOME/vimfiles/bundle/')
+	Plugin 'VundleVim/Vundle.vim'
+	Plugin 'ctrlp.vim'
+	Plugin 'Gundo'
+	Plugin 'Lokaltog/vim-powerline'
+	Plugin 'ragtag.vim'
+	Plugin 'scrooloose/nerdtree'
+	Plugin 'surround.vim'
+	Plugin 'YankRing.vim'
+	Plugin 'Valloric/YouCompleteMe'
+	Plugin 'mattn/emmet-vim'
+	Plugin 'tpope/vim-commentary'
+	Plugin 'tpope/vim-fugitive'
+	Plugin 'fatih/vim-go'
+	Plugin 'majutsushi/tagbar'
+	Plugin 'tomasr/molokai'
+	Plugin 'editorconfig/editorconfig-vim'
+	Plugin 'sirver/ultisnips'
+call vundle#end()
+
+" use indentation plugins => .vim/after/ftplugin 
+filetype plugin indent on
+
+" Leader
+let mapleader = ","
+
+set backspace=2		" Backspace deletes like most programs in insert mode
+set nobackup
+set nowritebackup
+set noswapfile		" http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
+set history=50
+set ruler           " show the cursor position all the time
+set showcmd         " display incomplete commands
+set incsearch       " do incremental searching
+set laststatus=2    " Always display the status line
+set autowrite       " Automatically :write before running commands
+set autoread        " Auto reload files when changed
+set hidden			" allow new buffers to be opened without saving the current
+set nowrap			" don't wrap lines, keep em' short!
+set autochdir		" set the cwd to the current file
+set guioptions-=m	" Remove menu bar
+set guioptions-=T	" Remove toolbar, left scrollbar and right scrollbar
+set guioptions-=l
+set guioptions-=L
+set guioptions-=r
+set guioptions-=R
+set splitbelow		" Open new split panes to right and bottom, which feels more natural
+set splitright
+set tabstop=4		" Default widths.  See ftplugin paths for language specific settings
+set shiftwidth=4
+set softtabstop=4
+set colorcolumn=80	" Color cols
+set number
+	
+" Ctrl-p
+" let g:ctrlp_map = '<F11>'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|vendor\|tmp'
+map <leader>t :CtrlP<CR>
+map <leader>b :CtrlPBuffer<cr>
+map <leader>m :CtrlPMRU<cr>
+
+" Go
+map <c-g><c-d> :GoDef<CR>
+map <c-g><c-i> :GoDoc<CR>
+let g:go_bin_path = "C:\Users\Chris\Go" 
+
+" UltiSnips
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "custom-snippets"]
+let g:UltiSnipsExpandTrigger="<c-s>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" NerdTree 
+nmap <F1> :NERDTree<cr>
+nmap <F2> :NERDTreeClose<cr>
+
+syntax on 
+" set noautoindent
+" set nocindent
+" set nosmartindent
+
+" Color scheme
+colorscheme molokai 
+highlight Normal guibg=#131313
+highlight Folded guibg=#0A0A0A guifg=#9090D0
+
+" Font
+set guifont=Droid\ Sans\ Mono:h10 linespace=0
+
+" Quickly get out of insert mode without your fingers having to leave the
+" home row (either use 'jj' or 'jk')
+inoremap jj <Esc>
+
+" File Settings
+autocmd FileType unix,css,scss,yaml,html,javascript,py,go autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd FileType html setlocal shiftwidth=4 tabstop=4 expandtab
+autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
