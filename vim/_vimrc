@@ -1,19 +1,19 @@
-
-set nocompatible              " be iMproved, required
-filetype off                  " required
-set rtp+=$HOME/vimfiles/bundle/Vundle.vim/
+set rtp+=$HOME/.vim/bundle/Vundle.vim/
+call vundle#begin('$HOME/.vim/bundle/')
 
 " Plugins
-call vundle#begin('$HOME/vimfiles/bundle/')
+call vundle#begin()
 	Plugin 'VundleVim/Vundle.vim'
 	Plugin 'ctrlp.vim'
 	Plugin 'Gundo'
 	Plugin 'Lokaltog/vim-powerline'
 	Plugin 'ragtag.vim'
 	Plugin 'scrooloose/nerdtree'
+	Plugin 'scrooloose/nerdcommenter'
+	Plugin 'scrooloose/syntastic'
 	Plugin 'surround.vim'
 	Plugin 'YankRing.vim'
-	Plugin 'Valloric/YouCompleteMe'
+	Plugin 'Valloric/YouCompleteMe' 
 	Plugin 'mattn/emmet-vim'
 	Plugin 'tpope/vim-commentary'
 	Plugin 'tpope/vim-fugitive'
@@ -22,7 +22,16 @@ call vundle#begin('$HOME/vimfiles/bundle/')
 	Plugin 'tomasr/molokai'
 	Plugin 'editorconfig/editorconfig-vim'
 	Plugin 'sirver/ultisnips'
+	Plugin 'honza/vim-snippets'
+	Plugin 'itchyny/lightline.vim'
+	Plugin 'ElmCast/elm-vim'
+	Plugin 'mhinz/vim-startify'
+	Plugin 'airblade/vim-gitgutter'
+	Plugin 'junegunn/fzf'
+	" Plugin 'w0rp/ale'
 call vundle#end()
+
+set encoding=utf-8
 
 " use indentation plugins => .vim/after/ftplugin 
 filetype plugin indent on
@@ -59,26 +68,50 @@ set colorcolumn=80	" Color cols
 set number
 	
 " Ctrl-p
-" let g:ctrlp_map = '<F11>'
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|vendor\|tmp'
-map <leader>t :CtrlP<CR>
-map <leader>b :CtrlPBuffer<cr>
-map <leader>m :CtrlPMRU<cr>
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_custom_ignore = 'elm-stuff\|node_modules\|DS_Store\|git\|vendor\|tmp'
+map <C-p> :CtrlP<CR>
+map <A-p> :CtrlPBuffer<cr>
+" map <S-p>m :CtrlPMRU<cr>
+
+:imap jj <Esc>
 
 " Go
-map <c-g><c-d> :GoDef<CR>
-map <c-g><c-i> :GoDoc<CR>
-let g:go_bin_path = "C:\Users\Chris\Go" 
+" map <c-g><c-d> :GoDef<CR>
+" map <c-g><c-i> :GoDoc<CR>
+" let g:go_bin_path = "C:\Users\Chris\Go" 
 
 " UltiSnips
-let g:UltiSnipsSnippetDirectories=["UltiSnips", "custom-snippets"]
-let g:UltiSnipsExpandTrigger="<c-s>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsSnippetDirectories=[$HOME . "/vim-snippets"]
+" let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsJumpForwardTrigger="<c->"
+" let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+" let g:UltiSnipsExpandTrigger = "<nop>"
+" let g:ulti_expand_or_jump_res = 0
+" function ExpandSnippetOrCarriageReturn()
+"     let snippet = UltiSnips#ExpandSnippetOrJump()
+"     if g:ulti_expand_or_jump_res > 0
+"         return snippet
+"     else
+"         return "\<CR>"
+"     endif
+" endfunction
+" inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" : "\<CR>"
+
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
 
 " NerdTree 
-nmap <F1> :NERDTree<cr>
-nmap <F2> :NERDTreeClose<cr>
+nmap <c-n> :NERDTreeToggle<cr>
 
 syntax on 
 " set noautoindent
@@ -87,8 +120,8 @@ syntax on
 
 " Color scheme
 colorscheme molokai 
-highlight Normal guibg=#131313
-highlight Folded guibg=#0A0A0A guifg=#9090D0
+" highlight Normal guibg=#131313
+" highlight Folded guibg=#0A0A0A guifg=#9090D0
 
 " Font
 set guifont=Droid\ Sans\ Mono:h10 linespace=0
@@ -99,5 +132,35 @@ inoremap jj <Esc>
 
 " File Settings
 autocmd FileType unix,css,scss,yaml,html,javascript,py,go autocmd BufWritePre <buffer> :%s/\s\+$//e
-autocmd FileType html setlocal shiftwidth=4 tabstop=4 expandtab
-autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
+" autocmd FileType html setlocal shiftwidth=4 tabstop=4 expandtab
+" autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
+
+" Ignores
+set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
+
+" Syntastic
+set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+
+" FZF
+" map <C-p> :FZF<CR>
+" Mapping selecting mappings
+nmap <leader><tab> <plug>(fzf-maps-n)
+xmap <leader><tab> <plug>(fzf-maps-x)
+omap <leader><tab> <plug>(fzf-maps-o)
+
+" Insert mode completion
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+imap <c-x><c-l> <plug>(fzf-complete-line)
+
+" Advanced customization using autoload functions
+inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
