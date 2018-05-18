@@ -16,6 +16,7 @@ call vundle#begin('$HOME/.vim/bundle/')
 	Plugin 'mattn/emmet-vim'
 	Plugin 'tpope/vim-commentary'
 	Plugin 'tpope/vim-fugitive'
+	Plugin 'tpope/vim-dadbod'
 	Plugin 'fatih/vim-go'
 	Plugin 'majutsushi/tagbar'
 	Plugin 'tomasr/molokai'
@@ -28,6 +29,7 @@ call vundle#begin('$HOME/.vim/bundle/')
 	Plugin 'airblade/vim-gitgutter'
 	Plugin 'junegunn/fzf'
 	Plugin 'neomake/neomake'
+	Plugin 'fisadev/fixedtasklist.vim'
 	" Plugin 'w0rp/ale'
 call vundle#end()
 
@@ -39,6 +41,7 @@ filetype plugin indent on
 set guifont=Droid\ Sans\ Mono:h10 linespace=0
 inoremap jj <Esc>
 tnoremap jj <C-\><C-n>
+map <leader>pj :%!python -m json.tool<CR>
 colorscheme molokai 
 autocmd FileType unix,css,scss,yaml,html,javascript,py,go autocmd BufWritePre <buffer> :%s/\s\+$//e
 " autocmd FileType html setlocal shiftwidth=4 tabstop=4 expandtab
@@ -83,7 +86,7 @@ let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_custom_ignore = 'elm-stuff\|node_modules\|DS_Store\|git\|vendor\|tmp'
 map <Leader>t :CtrlP<CR>
 map <Leader>b :CtrlPBuffer<cr>
-" map <S-p>m :CtrlPMRU<cr>
+map <Leader>m :CtrlPMRU<cr>
 
 
 " Go
