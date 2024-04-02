@@ -1,0 +1,47 @@
+# https://docs.helix-editor.com/configuration.html
+
+theme = "dark_plus"
+
+[editor]
+line-number = "relative"
+mouse = false
+rulers = [100]
+shell = ["zsh", "-c"]
+auto-save = true
+bufferline = "multiple"
+
+
+[editor.soft-wrap]
+enable = false
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "block"
+
+[editor.file-picker]
+hidden = false
+
+[editor.lsp]
+auto-signature-help = true
+display-inlay-hints = false
+display-messages = true
+
+[editor.whitespace.render]
+tab = "all"
+
+[editor.indent-guides]
+render = true
+
+[editor.statusline]
+left = ["mode", "spinner", "file-name", "file-type"]
+right = ["version-control", "diagnostics", "selections", "position", "file-encoding"]
+separator = "|"
+
+[keys.normal]
+C-space = "signature_help"
+C-t = ":toggle file-picker.hidden"
+
+[keys.insert]
+C-space = "signature_help"
+"C-[" = "normal_mode"
