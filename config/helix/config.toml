@@ -6,7 +6,7 @@ theme = "dark_plus"
 line-number = "relative"
 mouse = false
 rulers = [100]
-shell = ["zsh", "-c"]
+shell = ["fish", "-c"]
 auto-save = true
 bufferline = "multiple"
 
