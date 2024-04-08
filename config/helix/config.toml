@@ -8,7 +8,6 @@ mouse = false
 rulers = [100]
 shell = ["fish", "-c"]
 auto-save = true
-bufferline = "multiple"
 
 
 [editor.soft-wrap]
