@@ -96,6 +96,7 @@
       lazygit
       lf
       nerdfonts
+      ngrok
       obsidian
       onlyoffice-bin
       peek
