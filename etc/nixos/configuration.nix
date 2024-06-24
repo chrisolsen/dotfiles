@@ -86,7 +86,7 @@
     packages = with pkgs; [
       aseprite
       btop
-      dbeaver
+      direnv
       dropbox
       drawio
       ephemeral
@@ -126,9 +126,10 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    wget
-    helix
+    fzf
     git
+    helix
+    wget
 
     # https://wiki.nixos.org/wiki/ZSA_Keyboards#Flashing
     wally-cli  # ZSA keyboard    
@@ -142,6 +143,9 @@
   #   enableSSHSupport = true;
   # };
   programs.fish.enable = true;
+
+  # Allow for npm linking
+  programs.npm.enable = true;
 
   # List services that you want to enable:
 
