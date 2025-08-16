@@ -38,3 +38,10 @@ fuse2
 gear-lever
 fzf 
 mise
+github-cli
+prettier
+marksman
+svelte-language-server
+vscode-html-languageserver
+vscode-css-languageserver
+typescript-language-server
