@@ -1,6 +1,5 @@
 neovim
 helix
-wmenu
 foot
 firefox
 htop
@@ -15,7 +14,7 @@ graphicsmagick
 brightnessctl
 swaybg
 polkit
-wofi
+rofi-wayland
 adobe-source-code-pro-fonts
 otf-font-awesome
 ttf-roboto-mono
@@ -45,3 +44,4 @@ svelte-language-server
 vscode-html-languageserver
 vscode-css-languageserver
 typescript-language-server
+greetd-tuigreet

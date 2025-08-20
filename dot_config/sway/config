@@ -26,12 +26,14 @@ set $right l
 set $term ghostty
 
 # Your preferred application launcher
-set $menu wofi --show run 
+set $menu rofi -show drun 
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+# output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg ~/Pictures/Wallpaper/current fill
+
 #
 # Example configuration:
 #
