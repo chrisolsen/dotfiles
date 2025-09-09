@@ -1,8 +1,39 @@
-#!/usr/bin/bash
+#!/bin/bash
 
-{{ if eq .chezmoi.osRelease.id "bluefin" -}}
-	echo "Need to install scripts here for bluefin via brew"
-{{ else if eq .chezmoi.osRelease.id "arch" -}}
+
+# #######
+# Helpers
+# #######
+
+set_mise_defaults () {
+	mise use -g rust
+	mise use -g node
+}
+
+install_tools () {
+	# node
+	npm i -g markdownlint 
+}
+
+brew_install () {
+	brew install \
+		mise \
+		helix \
+		neovim \
+		git \
+		htop \
+		man \
+		ripgrep \
+		lazygit \
+		mise \
+		prettier \
+		typescript-language-server \
+		lua-language-server \
+		sql-language-server \
+		vue-language-server
+}
+
+pacman_install () {
 	sudo pacman -S \
 		neovim \
 		helix \
@@ -10,7 +41,6 @@
 		firefox \
 		htop \
 		git \
-		chezmoi \
 		xorg-setxkbmap \
 		man \
 		ripgrep \
@@ -47,8 +77,20 @@
 		svelte-language-server \
 		vscode-html-languageserver \
 		vscode-css-languageserver \
-		typescript-language-server
+		typescript-language-server \
+		glfw 
+}
 
-	# global tools	
-	mise use -g rust
+# ###
+# Run
+# ###
+
+{{ if eq .chezmoi.osRelease.id "bluefin" -}}
+	brew_install
+{{ else if eq .chezmoi.osRelease.id "arch" -}}
+	pacman_install
 {{ end -}}
+
+# Common
+set_mise_defaults	
+install_tools
