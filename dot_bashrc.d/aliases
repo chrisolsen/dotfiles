@@ -1,0 +1,13 @@
+
+# Git
+alias ga="git add"
+alias gs="git status"
+alias gc="git commit"
+
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+
+# Apps
+alias vim=nvim
+alias lzg=lazygit
+alias lzd=lazydocker
