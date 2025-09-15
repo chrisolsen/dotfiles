@@ -1,89 +1,99 @@
 #!/bin/bash
 
-
 # #######
 # Helpers
 # #######
 
 set_mise_defaults () {
-	mise use -g rust
-	mise use -g node
+  mise use -g rust
+  mise use -g node
 }
 
 install_tools () {
-	# node
-	npm i -g markdownlint-cli
+  # efm
+  # https://github.com/mattn/efm-langserver
+  go install github.com/mattn/efm-langserver@latest
+
+  # markdownlint 
+  npm i -g markdownlint-cli
+
+  # typescript
+  # https://github.com/typescript-language-server/typescript-language-server
+  npm i -g typescript-language-server typescript
+
+  # svelte
+  # https://github.com/sveltejs/language-tools
+  npm i -g svelte-language-server
+
+  # prettier
+  https://github.com/prettier/prettier
+  npm i -g prettier
+
+  # css
+  # https://github.com/microsoft/vscode-css-languageservice
+  npm i -g vscode-css-languageservice
+
+  # html
+  # https://github.com/Microsoft/vscode-html-languageservice
+  npm i -g vscode-html-languageservice
+
+  # neovim config
+  git clone https://github.com/chrisolsen/kickstart-modular.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
 }
 
 bluefin_setup () {
-	brew install \
-		mise \
-		helix \
-		neovim \
-		git \
-		htop \
-		man \
-		ripgrep \
-		lazygit \
-		mise \
-		prettier \
-		typescript-language-server \
-		lua-language-server \
-		sql-language-server \
-		vue-language-server
-
-	npm i -g \
-		svelte-language-server \
-		vscode-html-languageservice \
-		vscode-css-languageservice 
+  brew install \
+    git \
+    htop \
+    lazygit \
+    man \
+    marksman \
+    mise \
+    mise \
+    neovim \
+    ripgrep
 }
 
 pacman_install () {
-	sudo pacman -S \
-		neovim \
-		helix \
-		foot \
-		firefox \
-		htop \
-		git \
-		xorg-setxkbmap \
-		man \
-		ripgrep \
-		luarocks \
-		ghostty \
-		graphicsmagick \
-		brightnessctl \
-		swaybg \
-		polkit \
-		rofi-wayland \
-		adobe-source-code-pro-fonts \
-		otf-font-awesome \
-		ttf-roboto-mono \
-		ttf-font-awesome \
-		openssh \
-		waybar \
-		lazygit \
-		syncthing \
-		flatpak \
-		thunar \
-		impala \
-		fastfetch \
-		zoxide \
-		lf \
-		pavucontrol \
-		mpv \
-		wget \
-		fuse2 \
-		fzf  \
-		mise \
-		github-cli \
-		prettier \
-		marksman \
-		svelte-language-server \
-		vscode-html-languageserver \
-		vscode-css-languageserver \
-		typescript-language-server \
-		glfw 
+  sudo pacman -S \
+    adobe-source-code-pro-fonts \
+    brightnessctl \
+    fastfetch \
+    firefox \
+    flatpak \
+    foot \
+    fuse2 \
+    fzf  \
+    ghostty \
+    git \
+    github-cli \
+    glfw \
+    graphicsmagick \
+    htop \
+    impala \
+    lazygit \
+    lf \
+    luarocks \
+    man \
+    marksman \
+    mise \
+    mpv \
+    neovim \
+    openssh \
+    otf-font-awesome \
+    pavucontrol \
+    polkit \
+    ripgrep \
+    rofi-wayland \
+    swaybg \
+    syncthing \
+    thunar \
+    ttf-font-awesome \
+    ttf-roboto-mono \
+    waybar \
+    wget \
+    xorg-setxkbmap \
+    zoxide
 }
 
 # ###
@@ -91,11 +101,12 @@ pacman_install () {
 # ###
 
 {{ if eq .chezmoi.osRelease.id "bluefin" -}}
-	bluefin_setup	
+  bluefin_setup
 {{ else if eq .chezmoi.osRelease.id "arch" -}}
-	pacman_install
+  pacman_install
 {{ end -}}
 
 # Common
-set_mise_defaults	
+set_mise_defaults
 install_tools
+
