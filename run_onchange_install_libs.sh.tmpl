@@ -38,7 +38,12 @@ install_tools () {
   npm i -g vscode-html-languageservice
 
   # neovim config
-  git clone https://github.com/chrisolsen/kickstart-modular.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
+  NVIM_DIR="~/.config/nvim"
+  if [ -d "$NVIM_DIR" ]; then
+    echo "Nvim config dir already exists"
+  else
+    git clone https://github.com/chrisolsen/kickstart-modular.nvim.git "$NVIM_DIR"/nvim
+  fi
 }
 
 bluefin_setup () {
