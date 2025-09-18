@@ -7,6 +7,11 @@
 	alias pacman-clean="pacman -Qtdq | sudo pacman -Rns -"
 {{ end -}}
 
+{{ if eq .chezmoi.osRelease.id "bluefin" -}}
+## Bluefin
+  . "$HOME/.local/share/../bin/env"
+{{ end -}}
+
 
 ## All ##
 
@@ -42,6 +47,3 @@ if [ -d ~/.bashrc.d ]; then
     done
 fi
 unset rc
-
-# mise?
-. "$HOME/.local/share/../bin/env"
