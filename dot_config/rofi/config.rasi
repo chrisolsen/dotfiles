@@ -1,0 +1,22 @@
+configuration {
+  modes: [ combi ];
+  combi-modes: [ window, drun, run ];
+}
+
+@theme "solarized_alternate" 
+
+element {
+  orientation: horizontal;
+  children: [ element-text, element-icon ];
+  spacing: 5px;
+}
+
+element-text {
+  text-size: 16px;
+  vertical-align: 0.5;
+  text-color: rgba ( 250, 250, 250, 100 % );
+}
+
+element-icon {
+  size: 2.5em;
+}
