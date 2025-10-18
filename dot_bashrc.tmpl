@@ -32,7 +32,7 @@ if [ -f /etc/bashrc ]; then
     . /etc/bashrc
 fi
 
-export EDITOR=nvim
+export EDITOR=hx
 
 # Initialize tools 
 eval "$(zoxide init bash)"
@@ -41,9 +41,9 @@ eval "$(mise activate bash)"
 # User specific aliases and functions
 if [ -d ~/.bashrc.d ]; then
     for rc in ~/.bashrc.d/*; do
-  if [ -f "$rc" ]; then
-      . "$rc"
-  fi
+      if [ -f "$rc" ]; then
+          . "$rc"
+      fi
     done
 fi
 unset rc

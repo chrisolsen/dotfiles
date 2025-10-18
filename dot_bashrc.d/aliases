@@ -8,6 +8,7 @@ alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 
 # Apps
+alias hx=helix
 alias vim=nvim
 alias lzg=lazygit
 alias lzd=lazydocker
