@@ -1,18 +1,13 @@
 * {
     border: none;
-    border-radius: 4px;
-    /* `ttf-font-awesome` is required to be installed for icons */
     font-family: "Roboto Mono Medium", Helvetica, Arial, sans-serif;
-
-    /* adjust font-size value to your liking: */
     font-size: 16px;
-
     min-height: 0;
+    padding: 1px;
 }
 
 window#waybar {
-    background-color: rgba(50, 50, 50, 0.9);
-    border-bottom: 3px solid rgba(100, 114, 125, 0.5);
+    background-color: rgba(50, 50, 50, 0.3);
     color: #ffffff;
     transition-property: background-color;
     transition-duration: .5s;
@@ -34,6 +29,7 @@ window#waybar.solo {
 
 window#waybar.termite {
     background-color: #3F3F3F;
+    background-color: red;
 }
 
 window#waybar.chromium {
@@ -45,19 +41,18 @@ window#waybar.chromium {
     padding: 0 0.4em;
     background-color: transparent;
     color: #ffffff;
-    /* Use box-shadow instead of border so the text isn't offset */
-    box-shadow: inset 0 -3px transparent;
+    margin-right: 2px;
+    border-radius: 4px;
 }
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 #workspaces button:hover {
     background: rgba(0, 0, 0, 0.2);
-    box-shadow: inset 0 -3px #ffffff;
+    box-shadow: inherit;
 }
 
 #workspaces button.focused {
-    background-color: #64727D;
-    box-shadow: inset 0 -3px #ffffff;
+    background-color: rgba(0,0,0,0.4);
 }
 
 #workspaces button.urgent {
@@ -82,9 +77,10 @@ window#waybar.chromium {
 #mode,
 #idle_inhibitor,
 #mpd {
-    padding: 0 10px;
-    margin: 6px 3px; 
+    padding: 0 12px;
+    margin: 6px 5px; 
     color: #333333;
+    border-left: 1px solid black;
 }
 
 #window,
@@ -100,15 +96,6 @@ window#waybar.chromium {
 /* If workspaces is the rightmost module, omit right margin */
 .modules-right > widget:last-child > #workspaces {
     margin-right: 0;
-}
-
-#clock {
-    background-color: #bbccdd;
-}
-
-#battery {
-    background-color: #bbccdd;
-    color: #333333;
 }
 
 #battery.charging {
@@ -146,25 +133,15 @@ label:focus {
     background-color: #9b59b6;
 }
 
-#backlight {
-    background-color: #bbccdd;
-}
-
-#network {
-    background-color: #bbccdd;
-}
-
 #network.disconnected {
     background-color: #f53c3c;
 }
 
 #pulseaudio {
-    background-color: #bbccdd;
     color: #333333;
 }
 
 #pulseaudio.muted {
-    background-color: #bbccdd;
     color: #333333;
 }
 
@@ -221,7 +198,7 @@ label:focus {
 }
 
 #language {
-    background: #bbccdd;
+    background: rgba(0,0,0,0.2);
     color: #333333;
     padding: 0 5px;
     margin: 6px 3px;
