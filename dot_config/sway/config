@@ -3,13 +3,14 @@
 # Copy this to ~/.config/sway/config and edit it to your liking.
 #
 # Read `man 5 sway` for a complete reference.
+# https://github.com/isshin1/dotfiles-v2/blob/master/.config/sway/config_latest
 
 font pango: SourceCodePro Medium 14
 gaps inner 8px
 gaps outer 4px
 
 # hide window top border
-default_border none
+default_border pixel 3px
 
 ### Variables
 #
@@ -234,5 +235,13 @@ bindsym $mod+r mode "resize"
 bar {
   swaybar_command waybar
 }
+
+#
+# Focus
+
+# client.<class> <border> <background> <text> <indicator> <child_border> 
+client.focused "#03bafc" "#03bafc" "#FFFFFF" "#03bafc" "#03bafc"
+client.focused_inactive "#282C34" "#282C34" "#888888" "#282C34" "#282C34"
+client.unfocused "#282C34" "#282C34" "#888888" "#282C34" "#282C34"
 
 include /etc/sway/config.d/*
