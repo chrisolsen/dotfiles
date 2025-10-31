@@ -1,6 +1,6 @@
 configuration {
   modes: [ combi ];
-  combi-modes: [ drun, window ];
+  combi-modes: [ drun, run, window ];
 }
 
 @theme "squared-nord" 

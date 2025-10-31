@@ -29,7 +29,6 @@ window#waybar.solo {
 
 window#waybar.termite {
     background-color: #3F3F3F;
-    background-color: red;
 }
 
 window#waybar.chromium {
@@ -99,8 +98,6 @@ window#waybar.chromium {
 }
 
 #battery.charging {
-    color: #ffffff;
-    background-color: #26A65B;
 }
 
 @keyframes blink {
@@ -134,7 +131,8 @@ label:focus {
 }
 
 #network.disconnected {
-    background-color: #f53c3c;
+    color: #A1332B;
+    font-weight: bold;
 }
 
 #pulseaudio {
