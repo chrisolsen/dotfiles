@@ -233,7 +233,8 @@ bindsym $mod+r mode "resize"
 #
 # Fuzzel keybindings
 #
-    bindsym $mod+p exec fzl_power_menu.sh
+    bindsym $mod+p exec ~/.local/scripts/fzl_power_menu.sh
+    bindsym $mod+c exec ~/.local/scripts/fzl_common.sh
 
 #
 # Status Bar:
