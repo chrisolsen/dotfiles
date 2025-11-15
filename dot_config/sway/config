@@ -27,7 +27,7 @@ set $right l
 set $term ghostty
 
 # Your preferred application launcher
-set $menu rofi -show
+set $menu fuzzel
 
 ### Output configuration
 #
@@ -222,11 +222,18 @@ bindsym $mod+r mode "resize"
     bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume \@DEFAULT_SINK@ -5%
     bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@ +5%
     bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
+
     # Special keys to adjust brightness via brightnessctl
     bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
     bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
-    # Special key to take a screenshot with grim
+
+    # Special key to take a screenshot
     bindsym Print exec slurp
+
+#
+# Fuzzel keybindings
+#
+    bindsym $mod+p exec fzl_power_menu.sh
 
 #
 # Status Bar:
