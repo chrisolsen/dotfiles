@@ -1,30 +1,21 @@
 # Language support configuration.
 
+[language-server.astro-ls]
+command = "astro-ls"
+args = ["--stdio"]
+
 # See the languages documentation: https://docs.helix-editor.com/master/languages.html
 [[language]]
 name = "typescript"
 formatter = { command = 'prettier', args = ["--parser", "typescript", "--printWidith", "90"] }
 auto-format = true
 
-# [[language]]
-# name = "typescript"
-# shebangs = ["deno"]
-# roots = ["deno.json", "deno.jsonc"]
-# formatter = { command = 'prettier', args = ["--parser", "typescript", "--printWidith", "90"] }
-# auto-format = true
-# language-servers = ["deno-lsp"]
+[[language]]
+name = "astro"
+scope = "source.astro"
+injection-regex = "astro"
+file-types = ["astro"]
+language-servers = ["astro-ls"]
+formatter = { command = "prettier", args = ["--plugin", "prettier-plugin-astro", "--parser", "astro"] }
+auto-format = true
 
-# [language-server.deno-lsp]
-# command = "deno"
-# args = ["lsp"]
-
-# [language-server.deno-lsp.config.deno]
-# enable = true
-# unstable = true
-# suggest.imports.hosts = { "https://deno.land" = true }
-# inlayHints.parameterNames.enabled = "all"
-# inlayHints.parameterTypes.enabled = true
-# inlayHints.variableTypes.enabled = true
-# inlayHints.propertyDeclarationTypes.enabled  = true
-# inlayHints.functionLikeReturnTypes.enabled = true
-# inlayHints.enumMemberValues.enabled = true

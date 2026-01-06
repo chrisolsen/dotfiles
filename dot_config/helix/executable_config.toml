@@ -1,12 +1,12 @@
 # https://docs.helix-editor.com/configuration.html
 
-theme = "base16_transparent"
+theme = "catppuccin_mocha"
 
 [editor]
 line-number = "relative"
 mouse = false
 rulers = [100]
-shell = ["fish", "-c"]
+shell = ["bash", "-c"]
 auto-save = true
 
 
@@ -39,9 +39,6 @@ separator = "|"
 
 [keys.normal]
 C-space = "signature_help"
-C-k = ":sh tmux popup -d \"#{pane_current_path}\" -xC -yC -w80% -h80% -E fish"
-C-g = ":sh tmux popup -d \"#{pane_current_path}\" -xC -yC -w80% -h80% -E lazygit"
-C-l = ":sh tmux popup -d \"#{pane_current_path}\" -xC -yC -w80% -h80% -E lf"
 A-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
 A-k = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
 
