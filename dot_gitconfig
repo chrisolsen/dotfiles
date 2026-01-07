@@ -1,0 +1,18 @@
+[user]
+	name = Chris Olsen
+	email = olsen.chris@gmail.com
+[rebase]
+	autoStash = true
+[core]
+	editor = helix
+[init]
+	defaultBranch = main
+
+[rerere]
+	enabled = true
+
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
