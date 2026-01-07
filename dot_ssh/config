@@ -1,0 +1,7 @@
+Host github-goa
+    HostName github.com
+    IdentityFile ~/.ssh/goa
+
+Host github-personal
+    HostName github.com
+    IdentityFile ~/.ssh/id_rsa
