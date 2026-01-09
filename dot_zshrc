@@ -84,3 +84,5 @@ eval "$(zoxide init --cmd cd zsh)"
 #setopt COMPLETE_IN_WORD
 
 # . "$HOME/.local/share/../bin/env"
+
+eval "$(mise activate zsh)"

@@ -1,6 +1,6 @@
 # https://docs.helix-editor.com/configuration.html
 
-theme = "catppuccin_mocha"
+theme = "autumn_night"
 
 [editor]
 line-number = "relative"

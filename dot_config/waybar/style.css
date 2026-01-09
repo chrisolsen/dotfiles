@@ -78,7 +78,6 @@ window#waybar.chromium {
 #mpd {
     padding: 0 12px;
     margin: 6px 5px; 
-    color: #333333;
     border-left: 1px solid black;
 }
 
@@ -123,7 +122,6 @@ label:focus {
 
 #cpu {
     background-color: #2ecc71;
-    color: #333333;
 }
 
 #memory {
@@ -136,11 +134,9 @@ label:focus {
 }
 
 #pulseaudio {
-    color: #333333;
 }
 
 #pulseaudio.muted {
-    color: #333333;
 }
 
 #custom-media {
@@ -197,7 +193,6 @@ label:focus {
 
 #language {
     background: rgba(0,0,0,0.2);
-    color: #333333;
     padding: 0 5px;
     margin: 6px 3px;
     min-width: 16px;

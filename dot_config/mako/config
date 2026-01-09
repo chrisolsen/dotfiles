@@ -1,0 +1,21 @@
+# ~/.config/mako/config
+# Set position and margin
+anchor=top-right
+margin=20,20,20
+
+# Appearance
+font=sans-serif 12
+background-color=#2E3440FF
+text-color=#D8DEE9FF
+border-size=2
+border-color=#88C0D0FF
+border-radius=5
+
+# # Icons (requires gdk-pixbuf2)
+icons=1
+# icon-size=32
+
+# Behavior
+# sort=time
+max-history=5
+default-timeout=5000
