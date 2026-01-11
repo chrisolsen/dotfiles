@@ -1,6 +1,6 @@
 # Chezmoi
 
-## Arch common apps
+## Arch dev apps
 ```
 sudo pacman -S \
   chezmoi \
@@ -16,7 +16,12 @@ sudo pacman -S \
   zoxide
 ```
 
-Hyprland
+## Music
+```
+sudo pacman -S mpd mpc rmpd
+```
+
+## Hyprland
 ```
 sudo pacman -S \
   hyprlock \
