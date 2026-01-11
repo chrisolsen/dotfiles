@@ -1,19 +1,31 @@
 # Chezmoi
 
-## Arch dev apps
+## General
+```
+sudo pacman -S \
+  ttf-font-awesome \
+  vivaldi
+```
+
+## Utils
 ```
 sudo pacman -S \
   chezmoi \
+  ttf-font-awesome \
+  vivaldi \
+  zoxide
+```
+
+## Development
+```
+sudo pacman -S \
   distrobox \
   helix \
   lazygit \
   mise \
   podman \
   tmux \
-  ttf-font-awesome \
-  vivaldi \
-  zed \
-  zoxide
+  zed
 ```
 
 ## Music
