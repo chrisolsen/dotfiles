@@ -1,25 +1,28 @@
 # Chezmoi
 
-## Arch libs
+## Arch common apps
 ```
 sudo pacman -S \
   chezmoi \
   distrobox \
   helix \
-  hyprlock \
-  hyprpaper \
   lazygit \
-  libusb \
-  mako \
   mise \
   podman \
   tmux \
   ttf-font-awesome \
   vivaldi \
-  waybar \
-  wofi \
   zed \
   zoxide
 ```
 
-
+Hyprland
+```
+sudo pacman -S \
+  hyprlock \
+  hyprpaper \
+  libusb \
+  mako \
+  waybar \
+  wofi
+```
