@@ -3,6 +3,9 @@
 ## General
 ```
 sudo pacman -S \
+  betterbird \
+  obsidian \
+  transmission-qt \
   ttf-font-awesome \
   vivaldi
 ```
@@ -11,14 +14,26 @@ sudo pacman -S \
 ```
 sudo pacman -S \
   chezmoi \
-  ttf-font-awesome \
-  vivaldi \
+  input-leap \
   zoxide
 ```
+
+## Creative
+```
+sudo pacman -S \
+  inkscape \
+  kdenlive \
+  krita \
+  tiled
+```
+
+AppImages:
+- https://friction.graphics/
 
 ## Development
 ```
 sudo pacman -S \
+  claude-code \
   distrobox \
   helix \
   lazygit \
